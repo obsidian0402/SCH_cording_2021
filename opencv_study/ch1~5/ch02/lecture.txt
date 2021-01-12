@@ -1,0 +1,5 @@
+opencv는 영상데이터를 numpy.ndarry로 표현한다.
+ndim : 차원수. (=len(img.shape))
+shape : 각 차원의 크기. (h,w)or(h,w,3)
+size : 전체 원소 개수
+dtype : 원소의 데이터 타입. 영상데이터는 unit8
