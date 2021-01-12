@@ -1,0 +1,38 @@
+cv2.imread(filname(같은폴더or절대/상대경로),flags=none)
+filname : 불러올 영상 파일 이름
+flags : 옵션플래그 (color,grayscale,unchanged(PNG불러올때 투명성분 불러옴)) 
+retval : 불러온영상데이터(numpy.)
+
+
+
+cv2.imwrite(filname,img,params=None)
+img : 저장할영상데이터
+params: 파일 저장 옵션지정(속성&값의정수쌍)
+[cv.imwrite_JPEG_QUALITY,90] 파일 압축률 90%
+
+
+cv2.namedWindow(winame, flags=None)
+winame : 창 고유 이름(문자열)
+flags - cv2.WINDOW_NORMAL : 영상크기를 창크키게 맞게 지정
+        cv2.WIDOW_AUTOSIZE : 창 크기를 영상크기에 맞게 변경(기본값)
+
+cv2.destroyWindow(winname) : 닫을 창 지정
+cv2.destroyAllWindows() : 모든 창 닫음.
+
+
+cv2.moveWindow(winname,x,y) : 창위치 이동
+winname : 창이름
+x,y : 이동할 위치 좌표
+
+cv2.resizeWindow(winname,width,height)
+##cv2.WINDOW_NORMAL 로 생성되어야 동작함.
+##영상출력부분의 크기만을 고려
+
+cv2.imshow(winname,mat)
+mat : 출력할 영상 데이터(numpy.ndarray)
+
+cv2.waitKey(delay=none)
+delay : 밀리초단위 대기시간 0이하이면 무한히 기다림
+retval : 눌린키값. 키가 눌리지않으면 -1 반환
+특정키 확인 하려면 ord 함수 사용 ord('q')  q의 키코드
+특수키코드[반환값(누른키)]: 27(esc) 13(enter) 9(tab)

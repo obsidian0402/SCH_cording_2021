@@ -1,0 +1,23 @@
+{
+    "python.pythonPath": "C:\\Users\\obsid\\anaconda3\\python.exe",
+    "workbench.colorTheme": "Default Light+",
+    "workbench.editorAssociations": [
+        {
+            "viewType": "jupyter.notebook.ipynb",
+            "filenamePattern": "*.ipynb"
+        }
+    ],
+    "editor.fontFamily": "Consolas, 'Courier New', monospace",
+    "editor.fontSize": 25,
+    "editor.formatOnPaste": true,
+    "editor.minimap.enabled": false,
+    "editor.mouseWheelZoom": true,
+    "editor.wordWrap": "on",
+    "editor.wordWrapColumn": 120,
+    "explorer.confirmDelete": false,
+    "explorer.sortOrder":"type",
+    "window.restoreWindows": "none",
+    "python.linting.pylintArgs": [
+        "--generated-members=cv2.*"
+    ]
+}
