@@ -3,8 +3,12 @@ import cv2
 
 
 # 새 영상 생성하기
-img1 = np.empty((240, 320), dtype=np.uint8)       # grayscale image
-img2 = np.zeros((240, 320, 3), dtype=np.uint8)    # color image
+
+
+img1 = np.empty((240, 320), dtype=np.uint8)      
+ # grayscale image
+img2 = np.zeros((240, 320, 3), dtype=np.uint8)   
+ # color image
 img3 = np.ones((240, 320), dtype=np.uint8) * 255  # dark gray
 img4 = np.full((240, 320, 3), (0, 255, 255), dtype=np.uint8)  # yellow
 
