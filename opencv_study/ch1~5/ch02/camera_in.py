@@ -3,9 +3,15 @@ import cv2
 
 
 # 카메라 열기
+'''
+cv2.VideoCapture(index, apiPreference=None) -> retval
+index : camera_id + domain_offset_id
+apiPreference : 선호하는 카메라 처리 방법 지정
+retval : cv2.VideoCapture
+'''
 cap = cv2.VideoCapture(0)
 
-if not cap.isOpened():
+if not cap.isOpened(): #예외처리
     print("Camera open failed!")
     sys.exit()
 
