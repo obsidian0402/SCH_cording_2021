@@ -23,7 +23,7 @@ delay = round(1000 / fps)
 while True:
     ret, frame = cap.read()
 
-    if not ret:
+    if not ret: #동영상 마지막이면 break
         break
 
     inversed = ~frame  # 반전
