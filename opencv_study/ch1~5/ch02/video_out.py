@@ -1,6 +1,21 @@
 import sys
 import cv2
+'''
+#저장을 위한 동영상 파일 열기
+cv2.VideoWriter(filename, fourcc, frameSize, isColor=None)->retval
+fourcc : 영상파일 코텍,압축방식,색상,픽셀 포맷 등을 정의
+fps : 초당 프레임수
+frameSize : 프레임 크기 (ex[640,480])
+isColor : T = 컬러 F= 그외
 
+cv2.VideoWriter.open(filename, fourcc, fps, frameSize, isColor=None) -> retval(T/F)
+
+#비디오 파일 준비되었는지 확인
+cv2.VideoWriter.isOpened() -> retval(T/F)
+
+#프레임 저장하기
+cv2.VideoWriter.write(image) -> None  
+'''
 
 cap = cv2.VideoCapture(0)
 
@@ -28,12 +43,16 @@ while True:
     if not ret:
         break
 
-    inversed = ~frame
+    #inversed = ~frame
+    edge = cv2.Canny(frame,50,150)
+    edge_color = cv2.cvtColor(edge, cv2.COLOR_GRAY2BGR)
 
-    out.write(inversed)
+    out.write(frame) #소리저장X
 
     cv2.imshow('frame', frame)
-    cv2.imshow('inversed', inversed)
+    cv2.imshow('edge', edge)
+    cv2.imshow('edge_color', edge_color)
+    #cv2.imshow('inversed', inversed)
 
     if cv2.waitKey(delay) == 27:
         break
