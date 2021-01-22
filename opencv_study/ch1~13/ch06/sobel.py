@@ -24,6 +24,7 @@ if src is None:
     sys.exit()
 
 '''
+<방법2>
 kernel = np.array([
     [-1,0,1], 
     [-2,0,2], 
