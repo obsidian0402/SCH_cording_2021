@@ -4,7 +4,7 @@ import cv2
 
 
 # 입력 영상 불러오기
-src = cv2.imread('messi5.jpg')
+src = cv2.imread('nemo.jpg')
 
 if src is None:
     print('Image load failed!')
