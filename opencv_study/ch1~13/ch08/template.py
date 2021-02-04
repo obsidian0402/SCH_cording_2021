@@ -2,7 +2,21 @@ import sys
 import numpy as np
 import cv2
 
+'''
+템플릿 매칭이란?
+- 입력 영상에서 템플릿 영상과 일치하는 부분을 찾는 기법 ('스캔')
+- 템플릿 : 찾을 대상이 되는 작은 영상. 패치(patch)
+템플릿스캔 -> 유사도/비유사도 -> 최대값/최소값 선택 -> 템플릿 매칭
 
+#템플릿 매칭 함수
+cv2.matchTemplate(image, templ, method, result=None, mask=None) -> result
+
+image : 입력영상.
+templ : 템플릿 영상. image보다 같거나 작은 크기, 같은 타입.
+method : 비교 방법. cv2.TM_ 으로 시작하는 플래그 지정.
+result : 비교 결과 행렬. numpy.ndarray. dtype=numpy.float32. image의 크기가 WxH 이고, templ의 크기가 w x h이면 result 크기는 (W-w+1)x(H-h+1)
+
+'''
 # 입력 영상 & 템플릿 영상 불러오기
 src = cv2.imread('circuit.bmp', cv2.IMREAD_GRAYSCALE)
 templ = cv2.imread('crystal.bmp', cv2.IMREAD_GRAYSCALE)
