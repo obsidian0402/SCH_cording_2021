@@ -21,21 +21,6 @@ non-face 영역 skip 하도록 다단계검사 수행
 얼굴과 비슷한 부분은 더 많은 단계를 거쳐서 확정 시킴
 '''
 
-import sys
-import numpy as np
-import cv2
-
-src = cv2.imread('lenna.bmp')
-
-if src is None:
-    print('Image load failed!')
-    sys.exit()
-
-classifier = cv2.CascadeClassifier('haarcascade_frontalface_alt2.xml')
-
-if classifier.empty():
-    print('XML load failed!')
-    
 '''
 cv2.CascadeClassifier()
 cv2.CascadeClassifier(filename) 
@@ -50,5 +35,35 @@ minNeighbors : 얼마나 많은 이웃 사각형이 검출되어야 최종 검�
 minSize : 최소 객체 크기. (w,h)튜플.
 result : 검출된 객체의 사각형 정보(x,y,w,h)를 담은 numpy.ndarray. shape=(N,4). dtype=numpy.int32
 '''
+
+
+import sys
+import numpy as np
+import cv2
+
+cap = cv2.VideoCapture(0)
+
+if cap is None:
+    print('CAM load failed!')
+    sys.exit()
+
+classifier = cv2.CascadeClassifier('haarcascade_frontalface_alt2.xml')
+
+if classifier.empty():
+    print('XML load failed!')
+    sys.exit()
+
+faces = classifier.detectMultiSale(cap) 
+#입력영상에서 얼굴검출
+
+
+
+for (x,y,w,h) in faces :
+    cv2.rectangle(cap, (x,y), (x+w,y+h), (255, 0, 255), 2)
+    #(x,y,w,h) 형태로 넣어도 가능
+
+cv2.imshow('cap',cap)
+cv2.waitKey()
+cv2.detroyAllWindows()
 
 
